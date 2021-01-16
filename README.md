@@ -1,11 +1,11 @@
 ### Introduction and Objectives: 
 
 In this final assignment we implemented and simulated three behaviors of MIRO Robot. Those three behaviors are:
-    
- • Normal 
- • Sleep  
- • Play  
- • Find
+
+• Normal 
+• Sleep  
+• Play  
+• Find
 
 These three behaviors were implemented inside a finite state machine which was built using ROS library called SMACH. This node is named as assignment3.py file. This assignment is built up on the assignment 1 and 2. The difference is that the assignment 1 was a high level assignment, we did not have the real simulation of the robot, we just had to simulate the behaviors on the terminal.
 
