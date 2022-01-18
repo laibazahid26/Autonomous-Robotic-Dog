@@ -171,12 +171,10 @@ I collaborated with a fellow colleague for doing this assignment. Only the writi
 Below I mention the names and contacts of both of us. 
 
 Author 1: Laiba Zahid (S4853477)
-
 email ID: laibazahid26@gmail.com
 
 
 Author 2: Syed Muhammad Raza Rizvi (S4853521)
-
 email ID: smrazarizvi96@gmail.com
 
  
