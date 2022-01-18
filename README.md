@@ -1,11 +1,10 @@
 ### Introduction and Objectives: 
 
 In this final assignment we implemented and simulated three behaviors of MIRO Robot. Those three behaviors are:
-
-• Normal 
-• Sleep  
-• Play  
-• Find
+ * Normal
+ * Sleep
+ * Play
+ *  Find
 
 These three behaviors were implemented inside a finite state machine which was built using ROS library called SMACH. This node is named as assignment3.py file. This assignment is built up on the assignment 1 and 2. The difference is that the assignment 1 was a high level assignment, we did not have the real simulation of the robot, we just had to simulate the behaviors on the terminal.
 
@@ -13,16 +12,17 @@ Whereas, assignment number 3 is a low level assignment, which mean  that we actu
 
 Following are main tasks done in this assignment and will be discussed in detail in this readme file, later on. 
 
-    • Spawned a two wheeled robot having a hokuyo laser sensor mounted on its front. This robot was already provided to us as part of some other exercises done during the course. 
-    • Added additional links and joint for mounting a camera on the top of the robot. First a box was mounted on the base of the robot and on the front of this box, the camera was mounted. 
-    • Made a custom message for this assignment. This message is called as Ball. This means that the type of this custom message is Ball. 
-    • Built a User Interface so that the human can interact with the robot. This interface is built as a cpp file and is called Speak_node.cpp. 
-    • Used gmapping package for building the map of the entire environment. 
-    • Used move_base package for moving the robot. Move_base takes into account the world environment/map for planning trajectory. 
-    • Used explore_lite package for publishing targets to mobe_base server. 
-    • Loaded the important parameters in the rviz namely, RobotModel, LaserScan, Map,  Path and, Camera.  
-    • Build the complete ROS architecture and simulate it on Gazebo.
-    • Launched the complete assignment using a launch file. 
+
+ * Spawned a two wheeled robot having a hokuyo laser sensor mounted on its front. This robot was already provided to us as part of some other exercises done during the course. 
+ * Added additional links and joint for mounting a camera on the top of the robot. First a box was mounted on the base of the robot and on the front of this box, the camera was mounted. 
+ * Made a custom message for this assignment. This message is called as Ball. This means that the type of this custom message is Ball. 
+ * Built a User Interface so that the human can interact with the robot. This interface is built as a cpp file and is called Speak_node.cpp. 
+ * Used gmapping package for building the map of the entire environment. 
+ * Used move_base package for moving the robot. Move_base takes into account the world environment/map for planning trajectory. 
+ * Used explore_lite package for publishing targets to mobe_base server. 
+ * Loaded the important parameters in the rviz namely, RobotModel, LaserScan, Map,  Path and, Camera.  
+ * Build the complete ROS architecture and simulate it on Gazebo.
+ * Launched the complete assignment using a launch file. 
 
 ### Software Architecture:
 
