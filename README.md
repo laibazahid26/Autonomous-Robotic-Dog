@@ -36,11 +36,11 @@ The Odometry and Laser Scan data are used by SLAM gmapping algorithm to build th
 
 ### List of messages of the proposed Architecture:
 
-    • All the flags used in this architecture namely, playflag, nearHuman, expLiteFlag should ideally have data type bool. But in our architecture their data type is integer. 
-    •  Parameters namely, room and BallToBeFound have data type string.  
-    • The Command Manager node odometry and laserScan info which have data types, Odometry and LaserScan, respectively, 
-    • Path planner node provides frontiers. These are the locations which robot need to reach in order to explore the complete environment one by one. They have type MarkerArray. 
-    • Robot Controller node will generate velocity commands to reach to each frontier and it will have type Twist. 
+ * All the flags used in this architecture namely, playflag, nearHuman, expLiteFlag should ideally have data type bool. But in our architecture their data type is integer. 
+ * Parameters namely, room and BallToBeFound have data type string.  
+ * The Command Manager node odometry and laserScan info which have data types, Odometry and LaserScan, respectively, 
+ * Path planner node provides frontiers. These are the locations which robot need to reach in order to explore the complete environment one by one. They have type MarkerArray. 
+ * Robot Controller node will generate velocity commands to reach to each frontier and it will have type Twist. 
 
 
 ### State Diagram:
@@ -62,34 +62,34 @@ Inside this folder we have four more folders. Let’s go through them briefly on
 
 **1. slam_gmapping**
 
-       This package implements one of the strategies for mapping the environment, implemented as a ROS node and provides SLAM capabilities. This package needs two information from our mobile robot namely, laser scan data and the odometry data. By default our robot gives this information as the topics (/scan and /odom) as required by gmapping. Gmapping also wants to know the base frame. Our base_frame name is different than the name understood by gmapping so in our launch file we remapped parameter base_frame to link_chassis.
+This package implements one of the strategies for mapping the environment, implemented as a ROS node and provides SLAM capabilities. This package needs two information from our mobile robot namely, laser scan data and the odometry data. By default our robot gives this information as the topics (/scan and /odom) as required by gmapping. Gmapping also wants to know the base frame. Our base_frame name is different than the name understood by gmapping so in our launch file we remapped parameter base_frame to link_chassis.
        
 **2. planning**
 
-       move_base is part of the ROS navigation stack. We need to publish targets to move_base server and then taking into account the world environment, move_base plans a global path. Inside the param folder of planning, we have defined various parameters for move_base, and, global and local cost maps.   
+Move_Base is part of the ROS navigation stack. We need to publish targets to move_base server and then taking into account the world environment, move_base plans a global path. Inside the param folder of planning, we have defined various parameters for move_base, and, global and local cost maps.   
 
 **3. m-explore**
 
-       move_base only works if we generate targets, in terms of coordinates, to it. We definitely do not want that. For autonomous navigation it is essential for the robot to move without having the need for the user to publish the coordinates. m-explore does this job for us. M-explore package is an action server and generate frontiers/targets for move base. By default, the global planner used for the move_base is navfn. 
+Move_Base only works if we generate targets, in terms of coordinates, to it. We definitely do not want that. For autonomous navigation it is essential for the robot to move without having the need for the user to publish the coordinates. m-explore does this job for us. M-explore package is an action server and generate frontiers/targets for move base. By default, the global planner used for the move_base is navfn. 
        
 **4. exp_assignment3**
 
-       This folder was already provided to us. 
+This folder was already provided to us. 
        
-       Inside the world folder there lie a world file which describes the environment of our Gazebo world. The gazebo world was already given in the world folder of exp_assignment3.   
+Inside the world folder there lie a world file which describes the environment of our Gazebo world. The gazebo world was already given in the world folder of exp_assignment3.   
        
-       Inside the urdf folder, lie the xacro and gazebo files which together describe the description and functionalities of the robot and, the human to be spawned in the Gazebo simulation. To be specific, xacro file describes elements of the robots i.e. the links, joints, their mass, inertia and their complete geometry. Whereas in gazebo file we define the plugins i.e. additional properties needed for simulation purposes in Gazebo.  
-       We used the two wheeled robot which was provided to us previously during this course. We just defined additional links and joints for adding a box and a camera. We placed the box on the top of the robot base and on the front of this box we placed the camera.
+Inside the urdf folder, lie the xacro and gazebo files which together describe the description and functionalities of the robot and, the human to be spawned in the Gazebo simulation. To be specific, xacro file describes elements of the robots i.e. the links, joints, their mass, inertia and their complete geometry. Whereas in gazebo file we define the plugins i.e. additional properties needed for simulation purposes in Gazebo.  
+We used the two wheeled robot which was provided to us previously during this course. We just defined additional links and joints for adding a box and a camera. We placed the box on the top of the robot base and on the front of this box we placed the camera.
        
-       In the config folder we have saved the rviz configuration in a way that when the rviz will be loaded those parameters which are required for analyzing the complete architecture of the robot are loaded.  Those parameters are RobotModel, LaserScan, Map,  Path and, Camera.  
+In the config folder we have saved the rviz configuration in a way that when the rviz will be loaded those parameters which are required for analyzing the complete architecture of the robot are loaded.  Those parameters are RobotModel, LaserScan, Map,  Path and, Camera.  
        
-       Inside the scripts folder of exp_assignment3 we have implemented the entire architecture of the robot. The Speak_node.cpp file is the user interface for the user to interact with the robot for sending it in play state and then the location in which the robot should move after coming into the Play state. Whereas, in assignment3.py file the whole architecture of the robot is built as a finite_state machine.
+Inside the scripts folder of exp_assignment3 we have implemented the entire architecture of the robot. The Speak_node.cpp file is the user interface for the user to interact with the robot for sending it in play state and then the location in which the robot should move after coming into the Play state. Whereas, in assignment3.py file the whole architecture of the robot is built as a finite_state machine.
 
-       Inside the launch folder of exp_assignment3 we have two launch files. explore.launch file is repeatedly activated and shut down in our .py file. Whereas the other launch file, which is called simulation.launch, is responsible for launching gazebo, spawning robot and human inside the environment and is also responsible for launching all the nodes which lie inside the scripts folder. 
+Inside the launch folder of exp_assignment3 we have two launch files. explore.launch file is repeatedly activated and shut down in our .py file. Whereas the other launch file, which is called simulation.launch, is responsible for launching gazebo, spawning robot and human inside the environment and is also responsible for launching all the nodes which lie inside the scripts folder. 
        
-       The msg folder contains the custom data type we built for defining a ball. This custom message is called as Ball. This message has two parts. One part has type Bool, which is used as flag and will be set when a ball is detected and the other part has type Point,  which is used for storing the location of the detected ball. 
+The msg folder contains the custom data type we built for defining a ball. This custom message is called as Ball. This message has two parts. One part has type Bool, which is used as flag and will be set when a ball is detected and the other part has type Point,  which is used for storing the location of the detected ball. 
        
-       The html folder was generated because of running doxygen. 
+The html folder was generated by running doxygen. 
 
       
 ### Installation and Running Procedure:
