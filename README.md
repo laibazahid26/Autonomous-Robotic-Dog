@@ -21,7 +21,7 @@ Following are main tasks done in this assignment and will be discussed in detail
  * Used move_base package for moving the robot. Move_base takes into account the world environment/map for planning trajectory. 
  * Used explore_lite package for publishing targets to mobe_base server. 
  * Loaded the important parameters in the rviz namely, RobotModel, LaserScan, Map,  Path and, Camera.  
- * Build the complete ROS architecture and simulate it on Gazebo.
+ * Built the complete ROS architecture and simulate it on Gazebo.
  * Launched the complete assignment using a launch file. 
 
 ### Software Architecture:
